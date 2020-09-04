@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body
+        {
+            background-image: url(https://images.unsplash.com/photo-1507065255811-f3b9fe968f84?ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80);
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+        }
+        
+        .kb
+        {
+            margin: auto;
+            width: 80%;
+            border: 2px solid green;
+            background-color: rgba(10,200,0,0.7);
+        }
+        .kb:focus
+        {
+            
+        }
+        .btn
+        {
+            width: 60px;
+            height: 60px;
+            background-color: darkgreen;
+            border: none;
+            font-size: 20px;
+            color: white;
+            font-weight: bold;
+            
+        }
+        .btn:hover
+        {
+            background-color: greenyellow;
+        }
+        .btn:active
+        
+        {
+            background-color: blue;
+        }
+        .btn:focus
+        {
+            outline: none;
+        }
+        .kb
+        {
+            display: flex;
+            flex-direction: column;
+        }
+        .row1, .row2, .row3,.row4
+        {
+            display: flex;
+            padding: 4px;
+            justify-content: center;
+            align-items:center;
+        }
+        .inpt
+        {
+            background-color: rgba(0,0,0,.2);
+            resize: none;
+            height: 300px;
+            width: 80%;
+            color: white;
+            font-size: 20px;
+        }
+        .con
+        {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            width: 100%;
+        }
+        .textcon
+        {
+            width: 40%;
+            height: 10px;
+            
+            margin: 20px auto;
+        }
+        
+        .textcon>p
+        {
+            
+            color: white;
+            font-size: 20px;
+            border: 2px solid white;
+            
+        }
+        textarea::placeholder
+        {
+            color: white;
+        }
+    </style>
+    <body>
+        <div class="con">
+            
+            <div class="inp">
+                <textarea id="inpt" class="inpt" placeholder="Input your text here"></textarea>
+            </div>
+            
+            <div class="kb">
+                <div class="row1">
+                <button class="btn" onclick="fun(this)">1</button>
+                <button class="btn" onclick="fun(this)">2</button>
+                <button class="btn" onclick="fun(this)">3</button>
+                <button class="btn" onclick="fun(this)">4</button>
+                <button class="btn" onclick="fun(this)">5</button>
+                <button class="btn" onclick="fun(this)">6</button>
+                <button class="btn" onclick="fun(this)">7</button>
+                <button class="btn" onclick="fun(this)">8</button>
+                <button class="btn" onclick="fun(this)">9</button>
+                <button class="btn" onclick="fun(this)">0</button>
+                <button class="btn" onclick="fun(this)">&times;</button>
+                </div>
+                <div class="row2">
+                <button class="btn" onclick="fun(this)">q</button>
+                <button class="btn" onclick="fun(this)">w</button>
+                <button class="btn" onclick="fun(this)">e</button>
+                <button class="btn" onclick="fun(this)">r</button>
+                <button class="btn" onclick="fun(this)">t</button>
+                <button class="btn" onclick="fun(this)">y</button>
+                <button class="btn" onclick="fun(this)">u</button>
+                <button class="btn" onclick="fun(this)">i</button>
+                <button class="btn" onclick="fun(this)">o</button>
+                <button class="btn" onclick="fun(this)">p</button>
+                </div>
+                <div class="row3">
+                <button class="btn" onclick="fun(this)"><i class="fa fa-angle-up" style="font-size:36px"></i></button>
+                <button class="btn" onclick="fun(this)">a</button>
+                <button class="btn" onclick="fun(this)">s</button>
+                <button class="btn" onclick="fun(this)">d</button>
+                <button class="btn" onclick="fun(this)">f</button>
+                <button class="btn" onclick="fun(this)">g</button>
+                <button class="btn" onclick="fun(this)">h</button>
+                <button class="btn" onclick="fun(this)">j</button>
+                <button class="btn" onclick="fun(this)">k</button>
+                <button class="btn" onclick="fun(this)">l</button>
+                <button class="btn" onclick="fun(this)"><i class="fa fa-arrow-left" > </i></button>
+                </div>
+                <div class="row4">
+                <button class="btn" onclick="fun(this)"><i class="fa fa-check" aria-hidden="true"></i></button>
+                <button class="btn" onclick="fun(this)">z</button>
+                <button class="btn" onclick="fun(this)">x</button>
+                <button class="btn" onclick="fun(this)">c</button>
+                <button class="btn" onclick="fun(this)">v</button>
+                <button class="btn" onclick="fun(this)">b</button>
+                <button class="btn" onclick="fun(this)">n</button>
+                <button class="btn" onclick="fun(this)">m</button>
+                <button class="btn" onclick="fun(this)">&#44;</button>
+                <button class="btn" onclick="fun(this)">&#46;</button>
+                <button class="btn" onclick="fun(this)">&#63;</button>
+
+                </div>
+                <div class="row4">
+                <button style="width: 18%;"class="btn" onclick="fun(this)">&#95;</button>
+                
+                </div>
+            </div>
+            <div class="textcon" id="textcon">
+            </div>
+        </div>
+        
+    </body>
+    <script>
+        
+        flag=0;
+        function fun(e)
+        {
+            var keyp = e.innerHTML;
+            console.log(keyp);
+            if(keyp=='×')
+                {
+                    var inparea = document.getElementById("inpt").value;
+                    document.getElementById("inpt").value=inparea.slice(0, inparea.length-1);
+                    return 0;
+                    
+                }
+            if(keyp=='<i class="fa fa-angle-up" style="font-size:36px"></i>')
+                {
+                    flag=(flag+1)%2;
+                    return 0;
+                    
+                    
+                }
+            if(keyp=='<i class="fa fa-check" aria-hidden="true"></i>')
+                {
+                    var textcon = document.getElementById("textcon");
+                    var inparea = document.getElementById("inpt").value;
+                    textcon.innerHTML=textcon.innerHTML+'<p>'+inparea+'</p>';
+                    document.getElementById("inpt").value='';
+                    return 0;
+                    
+                    
+                }
+            
+            
+            if(keyp=='<i class="fa fa-arrow-left"> </i>')
+                {
+                    var inparea = document.getElementById("inpt").value;
+                    document.getElementById("inpt").value=inparea+'\r\n';
+                    return 0;
+                }
+            if(keyp=='_')
+                {
+                    var inparea = document.getElementById("inpt").value;
+                    document.getElementById("inpt").value=inparea+' ';
+                    return 0;
+                }
+            if(keyp=='<i class="fa fa-check" aria-hidden="true"></i>')
+                {
+                    var inparea = document.getElementById("inpt").value;
+                    document.getElementById("inpt").value=inparea+' ';
+                    return 0;
+                }
+            if(flag==1)
+                {
+                    keyp=keyp.toUpperCase();
+                }
+            var inparea = document.getElementById("inpt").value;
+            console.log(inparea);
+            console.log(inparea+keyp)
+            document.getElementById("inpt").value=inparea+keyp;
+        }
+    </script>
+</html>
